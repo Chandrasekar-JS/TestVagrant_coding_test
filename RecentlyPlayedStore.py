@@ -1,13 +1,13 @@
 class RecentlyPlayedStore:
     def __init__(self, num_songs_per_user=None, initial_capacity=3) -> None:
-        if num_songs_per_user == None:
+        if num_songs_per_user is None:
             self.num_songs_per_user = initial_capacity
         else:
             self.num_songs_per_user = num_songs_per_user
         self.store = {}
 
     def add_song(self, song_id, user_id):
-        if self.store.get(user_id) == None:
+        if self.store.get(user_id) is None:
             self.store[user_id] = []
         self.store[user_id].append(song_id)
         self.store[user_id] = self.store[user_id][-self.num_songs_per_user:]
